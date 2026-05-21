@@ -1,0 +1,113 @@
+# ⚡ ByteDrop
+
+> 🚀 Instant file sharing between your devices — no internet required.
+
+---
+
+## 🌌 What is ByteDrop?
+
+**ByteDrop** is a lightweight, blazing-fast file transfer tool that lets you send files between your laptop and phone instantly over the same network.
+
+No cloud. No login. No nonsense.
+
+Just **drag → drop → download**.
+
+---
+
+## ✨ Features
+
+* ⚡ **Instant Transfer** — No delays, no uploads to internet
+* 🌐 **Works Offline** — Same WiFi is enough
+* 📱 **QR Code Connect** — No typing IPs
+* 🖱️ **Drag & Drop Anywhere** — Drop files from anywhere on screen
+* ❌ **Delete Files Anytime** — Full control over uploads
+* 🌙 **Dark Mode UI** — Clean, minimal design
+* 💻 **Lightweight** — Runs smoothly even on low-end systems
+
+---
+
+## 🧠 How it Works
+
+1. Start the server on your laptop
+2. Open the app in browser
+3. Scan the QR code using your phone
+4. Drop files → instantly available on your phone
+
+---
+
+## 📸 Preview
+
+*(Add your screenshot here later)*
+
+---
+
+## ⚙️ Installation
+
+```bash
+git clone https://github.com/YOUR-USERNAME/byte-drop.git
+cd byte-drop
+npm install
+node server.js
+```
+
+---
+
+## 📱 Usage
+
+* Open:
+
+```
+http://localhost:3000
+```
+
+* Or scan the QR code from your phone
+
+* Drag & drop files anywhere on screen
+
+* Click to download on your phone
+
+---
+
+## 🔐 Privacy
+
+* ❌ No cloud storage
+* ❌ No third-party servers
+* ✅ Everything stays on your local network
+
+---
+
+## 🧩 Tech Stack
+
+* Node.js
+* Express
+* Multer
+* Vanilla HTML/CSS/JS
+
+---
+
+## 🚀 Future Plans
+
+* 📊 Upload progress bar
+* 📂 Multi-file upload
+* 🔥 Hotspot mode (no WiFi needed)
+* 📡 Auto device discovery
+* 🎨 Advanced UI/animations
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome.
+If you have ideas, open an issue!
+
+---
+
+## ⭐ Show Some Love
+
+If you like this project, consider giving it a ⭐ on GitHub — it really helps!
+
+---
+
+## 🧊 ByteDrop
+
+> Drop fast. Share instantly.

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Drop</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #0f0f0f;
+      color: #eee;
+      font-family: sans-serif;
+      text-align: center;
+    }
+
+    button {
+        background: #ff4d4d;
+        border: none;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    h2 {
+      margin-top: 20px;
+    }
+
+    #qrBox img {
+      margin: 10px;
+      border-radius: 10px;
+    }
+
+    #drop {
+      border: 2px dashed #444;
+      padding: 40px;
+      margin: 20px;
+      border-radius: 12px;
+      background: #1a1a1a;
+    }
+
+    #files {
+      background: #0f0f0f;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px;
+    }
+
+    a {
+      color: #4fc3f7;
+      display: block;
+      margin: 8px;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<h2>📂 Drop</h2>
+
+<div id="qrBox"></div>
+<p id="link"></p>
+
+<div id="drop">Drag & Drop Files</div>
+
+<div id="files"></div>
+
+<script>
+fetch("/qr")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("qrBox").innerHTML =
+      `<img src="${data.qr}" width="200"/>`;
+
+    document.getElementById("link").innerText = data.url;
+  });
+
+const drop = document.getElementById("drop");
+
+drop.ondragover = e => e.preventDefault();
+
+drop.ondrop = e => {
+  e.preventDefault();
+  const file = e.dataTransfer.files[0];
+  const form = new FormData();
+  form.append("file", file);
+
+  fetch("/upload", {
+    method: "POST",
+    body: form
+  }).then(loadFiles);
+};
+
+function loadFiles() {
+  fetch("/files")
+    .then(res => res.json())
+    .then(files => {
+      const list = document.getElementById("files");
+      list.innerHTML = "";
+
+      files.forEach(f => {
+        list.innerHTML += `
+          <div style="margin: 8px;">
+            <a href="/download/${f}">${f}</a>
+            <button onclick="deleteFile('${f}')" style="margin-left:10px;">❌</button>
+          </div>
+        `;
+      });
+    });
+}
+
+function deleteFile(name) {
+  fetch("/delete/" + name, {
+    method: "DELETE"
+  }).then(loadFiles);
+}
+
+setInterval(loadFiles, 2000);
+loadFiles();
+
+// Prevent default behavior
+window.addEventListener("dragover", e => e.preventDefault());
+
+window.addEventListener("drop", e => {
+  e.preventDefault(); // important
+
+  const file = e.dataTransfer.files[0];
+  if (!file) return;
+
+  const form = new FormData();
+  form.append("file", file);
+
+  fetch("/upload", {
+    method: "POST",
+    body: form
+  }).then(loadFiles);
+});
+</script>
+
+</body>
+</html>
