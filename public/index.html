@@ -14,12 +14,14 @@
     }
 
     button {
-        background: #ff4d4d;
+        background: #ff3b3b;
         border: none;
-        color: white;
-        padding: 4px 8px;
-        border-radius: 6px;
+        color: white; 
+        padding: 6px 10px;
+        border-radius: 8px;
         cursor: pointer;
+        font-weight: bold;
+        font-size: 14px;
     }
 
     h2 {
@@ -56,6 +58,36 @@
     a:hover {
       text-decoration: underline;
     }
+
+    .file-card {
+        margin: 6px auto;
+        padding: 15px 20px;
+        width: 40%;
+        border-width: 1px;
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 0 0 6px #eaeaea; /* outer white border effect */
+    }
+
+    .file-card span {
+        color: #ffffff;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .file-card span:hover {
+        text-decoration: underline;
+    }
+    
+    .file-card span {
+        max-width: 70%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
   </style>
 </head>
 <body>
@@ -104,13 +136,17 @@ function loadFiles() {
 
       files.forEach(f => {
         list.innerHTML += `
-          <div style="margin: 8px;">
-            <a href="/download/${f}">${f}</a>
-            <button onclick="deleteFile('${f}')" style="margin-left:10px;">❌</button>
+          <div class="file-card">
+            <span onclick="downloadFile('${f}')">${f}</span>
+            <button onclick="deleteFile('${f}')">X</button>
           </div>
         `;
       });
     });
+}
+
+function downloadFile(name) {
+  window.location.href = "/download/" + name;
 }
 
 function deleteFile(name) {
