@@ -1,14 +1,27 @@
-# ⚡ ByteDrop
+# ⚡ ByteDrop — Instant Local File Sharing
 
-> 🚀 Instant file sharing between your devices — no internet required.
+<p align="center">
+  <img src="assets/logo.png" width="200" alt="ByteDrop Logo"/>
+</p>
+
+<p align="center">
+  <b>Drop fast. Share instantly.</b>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/build-passing-brightgreen" />
+  <img src="https://img.shields.io/badge/version-v1.0-blue" />
+  <img src="https://img.shields.io/badge/license-MIT-yellow" />
+  <img src="https://img.shields.io/badge/status-active-success" />
+</p>
 
 ---
 
-## 🌌 What is ByteDrop?
+## 🚀 What is ByteDrop?
 
-**ByteDrop** is a lightweight, blazing-fast file transfer tool that lets you send files between your laptop and phone instantly over the same network.
+**ByteDrop** is a lightweight, blazing-fast file sharing tool that lets you instantly transfer files between your laptop and phone — without internet.
 
-No cloud. No login. No nonsense.
+No accounts. No cloud. No waiting.
 
 Just **drag → drop → download**.
 
@@ -16,28 +29,38 @@ Just **drag → drop → download**.
 
 ## ✨ Features
 
-* ⚡ **Instant Transfer** — No delays, no uploads to internet
-* 🌐 **Works Offline** — Same WiFi is enough
+* ⚡ **Instant File Transfer** — Over local network
+* 🌐 **Works Without Internet**
 * 📱 **QR Code Connect** — No typing IPs
-* 🖱️ **Drag & Drop Anywhere** — Drop files from anywhere on screen
-* ❌ **Delete Files Anytime** — Full control over uploads
-* 🌙 **Dark Mode UI** — Clean, minimal design
-* 💻 **Lightweight** — Runs smoothly even on low-end systems
+* 🖱️ **Drop Anywhere** — Full-screen drag support
+* ❌ **Delete Uploaded Files**
+* 🌙 **Minimal Dark UI**
+* 💻 **Low RAM Usage**
 
 ---
 
-## 🧠 How it Works
+## 🧠 How It Works
 
-1. Start the server on your laptop
-2. Open the app in browser
-3. Scan the QR code using your phone
-4. Drop files → instantly available on your phone
+```text
+Laptop (Server)
+   ↓
+Same WiFi / Hotspot
+   ↓
+Phone (Browser)
+```
+
+1. Run the app on your laptop
+2. Scan QR code using your phone
+3. Drop files
+4. Download instantly
 
 ---
 
 ## 📸 Preview
 
-*(Add your screenshot here later)*
+<p align="center">
+  <img src="assets/preview.png" width="700"/>
+</p>
 
 ---
 
@@ -54,25 +77,23 @@ node server.js
 
 ## 📱 Usage
 
-* Open:
+* Open in browser:
 
 ```
 http://localhost:3000
 ```
 
-* Or scan the QR code from your phone
-
-* Drag & drop files anywhere on screen
-
-* Click to download on your phone
+* Or scan the QR code
+* Drag & drop files anywhere
+* Tap to download on phone
 
 ---
 
-## 🔐 Privacy
+## 🔐 Privacy First
 
-* ❌ No cloud storage
+* ❌ No internet required
 * ❌ No third-party servers
-* ✅ Everything stays on your local network
+* ✅ 100% local transfer
 
 ---
 
@@ -81,33 +102,39 @@ http://localhost:3000
 * Node.js
 * Express
 * Multer
-* Vanilla HTML/CSS/JS
+* Vanilla JS
 
 ---
 
-## 🚀 Future Plans
+## 🚀 Roadmap
 
 * 📊 Upload progress bar
-* 📂 Multi-file upload
-* 🔥 Hotspot mode (no WiFi needed)
-* 📡 Auto device discovery
-* 🎨 Advanced UI/animations
+* 📂 Multi-file support
+* 🔥 Hotspot mode
+* 📡 Auto device detection
+* 🎨 Better UI animations
 
 ---
 
 ## 🤝 Contributing
 
 Pull requests are welcome.
-If you have ideas, open an issue!
+If you’ve got ideas, open an issue!
 
 ---
 
-## ⭐ Show Some Love
+## ⭐ Support
 
-If you like this project, consider giving it a ⭐ on GitHub — it really helps!
+If you like ByteDrop, give it a ⭐ — it helps a lot!
 
 ---
 
-## 🧊 ByteDrop
+## 👨‍💻 Author
 
-> Drop fast. Share instantly.
+Built with 💻 by **Abhishek**
+
+---
+
+## ⚡ ByteDrop
+
+> Fast. Local. Simple.
