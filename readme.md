@@ -60,7 +60,7 @@ Phone (Browser)
 ## 📸 Preview
 
 <p align="center">
-  <img src="assets/preview.png" width="700"/>
+<img width="1896" height="703" alt="image" src="https://github.com/user-attachments/assets/917e5f92-b7c6-414f-9a27-90fdbc369f36" />
 </p>
 
 ---
