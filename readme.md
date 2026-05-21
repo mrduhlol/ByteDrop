@@ -1,8 +1,9 @@
 # ⚡ ByteDrop — Instant Local File Sharing
 
 <p align="center">
-  <img src="assets/logo.png" width="200" alt="ByteDrop Logo"/>
+  <img src="https://github.com/user-attachments/assets/379ae206-eadb-4e97-b498-79548840c7b2" width="350"/>
 </p>
+<h1 align="center">ByteDrop</h1>
 
 <p align="center">
   <b>Drop fast. Share instantly.</b>
