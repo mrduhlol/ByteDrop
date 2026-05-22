@@ -203,39 +203,30 @@ function loadFiles() {
     .then(res => res.json())
     .then(files => {
       const list = document.getElementById("files");
-      const btn = document.getElementById("downloadAllBtn");
+      const clearBtn = document.getElementById("clearBtn");
+      const downloadAllBtn = document.getElementById("downloadAllBtn");
 
       list.innerHTML = "";
 
       if (files.length === 0) {
-        btn.style.display = "none";
-
-        list.innerHTML = `
-          <div style="margin-top:30px; color:#666;">
-            ⏳ Waiting for files...
-          </div>
-        `;
-        return;
+        clearBtn.style.display = "none";
+        downloadAllBtn.style.display = "none";
+      } else {
+        clearBtn.style.display = "inline-block";
+        downloadAllBtn.style.display = "inline-block";
       }
 
-      btn.style.display = "block";
-      btn.textContent = `Download (${files.length})`;
+      clearBtn.textContent = `Clear (${files.length})`;
+      downloadAllBtn.textContent = `Download (${files.length})`;
 
       files.forEach(f => {
         list.innerHTML += `
-          <div class="file">
-            <a href="/download/${f}">${f}</a>
+          <div class="file-card">
+            <span onclick="downloadFile('${f}')">${f}</span>
+            <button class="delete" onclick="deleteFile('${f}')">X</button>
           </div>
         `;
       });
-
-      btn.onclick = () => {
-        files.forEach((file, i) => {
-          setTimeout(() => {
-            window.open("/download/" + file, "_blank");
-          }, i * 300);
-        });
-      };
     });
 }
 
