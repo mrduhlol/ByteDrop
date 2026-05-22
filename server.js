@@ -30,6 +30,18 @@ app.get("/download/:name", (req, res) => {
   res.download("uploads/" + req.params.name);
 });
 
+app.delete("/clear", (req, res) => {
+  const fs = require("fs");
+
+  const files = fs.readdirSync("uploads");
+
+  files.forEach(file => {
+    fs.unlinkSync("uploads/" + file);
+  });
+
+  res.sendStatus(200);
+});
+
 function getLocalIP() {
   const nets = os.networkInterfaces();
   for (const name of Object.keys(nets)) {
