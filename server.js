@@ -30,6 +30,10 @@ app.get("/download/:name", (req, res) => {
   res.download("uploads/" + req.params.name);
 });
 
+app.get("/receive", (req, res) => {
+  res.sendFile(__dirname + "/public/receive.html");
+});
+
 app.delete("/clear", (req, res) => {
   const fs = require("fs");
 
@@ -56,16 +60,16 @@ function getLocalIP() {
 
 const PORT = 3000;
 const IP = getLocalIP();
-const URL = `http://${IP}:${PORT}`;
+const BASE_URL = `http://${IP}:${PORT}`;
+const QR_URL = `${BASE_URL}/receive`;
 
-// QR route
 app.get("/qr", async (req, res) => {
-  const qr = await QRCode.toDataURL(URL);
-  res.json({ url: URL, qr });
+  const qr = await QRCode.toDataURL(QR_URL);
+  res.json({ url: QR_URL, qr });
 });
 
 app.listen(PORT, () => {
-  console.log(`Running on ${URL}`);
+  console.log(`Running on ${BASE_URL}`);
 });
 
 app.delete("/delete/:name", (req, res) => {

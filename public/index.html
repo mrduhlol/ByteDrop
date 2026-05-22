@@ -203,27 +203,39 @@ function loadFiles() {
     .then(res => res.json())
     .then(files => {
       const list = document.getElementById("files");
-      const clearBtn = document.getElementById("clearBtn");
-      const downloadAllBtn = document.getElementById("downloadAllBtn");
+      const btn = document.getElementById("downloadAllBtn");
 
       list.innerHTML = "";
 
-      clearBtn.textContent = files.length
-        ? `Clear (${files.length})`
-        : "Clear";
+      if (files.length === 0) {
+        btn.style.display = "none";
 
-      downloadAllBtn.textContent = files.length
-        ? `Download (${files.length})`
-        : "Download";
+        list.innerHTML = `
+          <div style="margin-top:30px; color:#666;">
+            ⏳ Waiting for files...
+          </div>
+        `;
+        return;
+      }
+
+      btn.style.display = "block";
+      btn.textContent = `Download (${files.length})`;
 
       files.forEach(f => {
         list.innerHTML += `
-          <div class="file-card">
-            <span onclick="downloadFile('${f}')">${f}</span>
-            <button class="delete" onclick="deleteFile('${f}')">X</button>
+          <div class="file">
+            <a href="/download/${f}">${f}</a>
           </div>
         `;
       });
+
+      btn.onclick = () => {
+        files.forEach((file, i) => {
+          setTimeout(() => {
+            window.open("/download/" + file, "_blank");
+          }, i * 300);
+        });
+      };
     });
 }
 
@@ -307,6 +319,8 @@ downloadAllBtn.onclick = () => {
       });
     });
 };
+
+setInterval(loadFiles, 2000);
 
 </script>
 

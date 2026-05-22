@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ByteDrop</title>
+
+  <style>
+    body {
+      background: #0f0f0f;
+      color: white;
+      font-family: sans-serif;
+      text-align: center;
+      margin: 0;
+    }
+
+    h3 {
+      margin-top: 20px;
+    }
+
+    #downloadAllBtn {
+      background: #2d8cff;
+      color: #fff;
+      border: 1.5px solid #1a5fd0;
+      padding: 12px;
+      width: 80%;
+      border-radius: 8px;
+      font-size: 16px;
+      margin: 20px;
+    }
+
+    .file {
+      background: #1a1a1a;
+      margin: 10px auto;
+      padding: 12px;
+      width: 85%;
+      border-radius: 10px;
+      border: 1px solid #333;
+    }
+
+    .file a {
+      color: #4fc3f7;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<h3>📥 Available Files</h3>
+
+<button id="downloadAllBtn">Download (0)</button>
+
+<div id="files"></div>
+
+<script>
+const btn = document.getElementById("downloadAllBtn");
+
+function loadFiles() {
+  fetch("/files")
+    .then(res => res.json())
+    .then(files => {
+      const list = document.getElementById("files");
+
+      list.innerHTML = "";
+
+      // update button text
+      btn.textContent = files.length
+        ? `Download (${files.length})`
+        : "Download";
+
+      // show files
+      files.forEach(f => {
+        list.innerHTML += `
+          <div class="file">
+            <a href="/download/${f}">${f}</a>
+          </div>
+        `;
+      });
+
+      // download all
+      btn.onclick = () => {
+        files.forEach((file, i) => {
+          setTimeout(() => {
+            window.open("/download/" + file, "_blank");
+          }, i * 300);
+        });
+      };
+    });
+}
+
+loadFiles();
+</script>
+
+</body>
+</html>
