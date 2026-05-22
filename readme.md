@@ -59,9 +59,9 @@ Phone (Browser)
 
 ## 📸 Preview
 
-<p align="center">
-<img width="1896" height="703" alt="image" src="https://github.com/user-attachments/assets/917e5f92-b7c6-414f-9a27-90fdbc369f36" />
-</p>
+<img width="351" height="76" alt="image" src="https://github.com/user-attachments/assets/817ea891-f5d8-4ffa-83ee-1b3fff9a2c19" />
+<img width="1903" height="968" alt="image" src="https://github.com/user-attachments/assets/4d990f17-a559-47ec-9cfe-1730350f500a" />
+<img width="412" height="915" alt="image" src="https://github.com/user-attachments/assets/1eb7c241-e924-44da-b80b-5c40fdfc8e13" />
 
 ---
 
