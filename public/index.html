@@ -87,6 +87,22 @@
       font-size: 15px;
     }
 
+    #downloadWrapper {
+      width: 40%;
+      margin: 15px auto;
+      text-align: center;
+    }
+
+    #downloadAllBtn {
+      background: #2d8cff;
+      color: #fff;
+      border: 1.5px solid #1a5fd0;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
     a {
       color: #4fc3f7;
       display: block;
@@ -152,6 +168,10 @@
 
 <div id="files"></div>
 
+<div id="downloadWrapper">
+  <button id="downloadAllBtn">Download (0)</button>
+</div>
+
 <script>
 fetch("/qr")
   .then(res => res.json())
@@ -184,18 +204,23 @@ function loadFiles() {
     .then(files => {
       const list = document.getElementById("files");
       const clearBtn = document.getElementById("clearBtn");
+      const downloadAllBtn = document.getElementById("downloadAllBtn");
 
       list.innerHTML = "";
 
-      clearBtn.textContent = files.length 
-        ? `Clear All (${files.length})` 
-        : "No Files";
+      clearBtn.textContent = files.length
+        ? `Clear (${files.length})`
+        : "Clear";
+
+      downloadAllBtn.textContent = files.length
+        ? `Download (${files.length})`
+        : "Download";
 
       files.forEach(f => {
         list.innerHTML += `
           <div class="file-card">
             <span onclick="downloadFile('${f}')">${f}</span>
-            <button onclick="deleteFile('${f}')">X</button>
+            <button class="delete" onclick="deleteFile('${f}')">X</button>
           </div>
         `;
       });
@@ -268,6 +293,21 @@ fileInput.onchange = () => {
     }).then(loadFiles);
   }
 };
+
+const downloadAllBtn = document.getElementById("downloadAllBtn");
+
+downloadAllBtn.onclick = () => {
+  fetch("/files")
+    .then(res => res.json())
+    .then(files => {
+      files.forEach((file, i) => {
+        setTimeout(() => {
+          window.open("/download/" + file, "_blank");
+        }, i * 300);
+      });
+    });
+};
+
 </script>
 
 </body>
