@@ -1,3 +1,6 @@
+
+#!/usr/bin/env node
+
 const express = require("express");
 const multer = require("multer");
 const QRCode = require("qrcode");
@@ -69,7 +72,14 @@ app.get("/qr", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Running on ${BASE_URL}`);
+  console.log(`
+⚡ ByteDrop Started!
+
+💻 Laptop → ${BASE_URL}
+📱 Scan QR → ${QR_URL}
+
+🚀 Open on phone to download files
+`);
 });
 
 app.delete("/delete/:name", (req, res) => {
