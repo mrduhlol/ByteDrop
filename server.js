@@ -1,6 +1,3 @@
-
-#!/usr/bin/env node
-
 const express = require("express");
 const multer = require("multer");
 const QRCode = require("qrcode");
@@ -79,6 +76,8 @@ app.listen(PORT, () => {
 📱 Scan QR → ${QR_URL}
 
 🚀 Open on phone to download files
+
+(Ctrl + C to stop)
 `);
 });
 
