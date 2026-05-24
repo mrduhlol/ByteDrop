@@ -18,124 +18,151 @@
 
 ---
 
-## 🚀 What is ByteDrop?
+# 🚀 ByteDrop — Instant Local File Sharing
 
-**ByteDrop** is a lightweight, blazing-fast file sharing tool that lets you instantly transfer files between your laptop and phone — without internet.
-
-No accounts. No cloud. No waiting.
-
-Just **drag → drop → download**.
+> ⚡ Drop fast. Share instantly. No internet. No login. No nonsense.
 
 ---
 
-## ✨ Features
+## ✨ What is ByteDrop?
 
-* ⚡ **Instant File Transfer** — Over local network
-* 🌐 **Works Without Internet**
-* 📱 **QR Code Connect** — No typing IPs
-* 🖱️ **Drop Anywhere** — Full-screen drag support
-* ❌ **Delete Uploaded Files**
-* 🌙 **Minimal Dark UI**
-* 💻 **Low RAM Usage**
+ByteDrop is a lightweight file sharing tool that lets you instantly transfer files between your laptop and phone over the same WiFi.
+
+No cloud. No accounts. No waiting.
+
+Just:
+drag → drop → download 📦
 
 ---
 
-## 🧠 How It Works
+## 🔥 Features
 
-```text
+- ⚡ Instant file transfer over local network
+- 📱 QR code connection (no typing IP)
+- 🧠 Smart UI separation
+  - Laptop → upload + manage
+  - Phone → clean download page
+- 📥 Download All button
+- 🗑️ Clear all files
+- 🔄 Auto-refresh on phone
+- 🌙 Minimal dark UI
+- 💻 Low RAM usage
+
+---
+
+
+## 📸 How it works
+
 Laptop (Server)
-   ↓
-Same WiFi / Hotspot
-   ↓
-Phone (Browser)
+    ↓
+Same WiFi Network
+    ↓
+Phone (Browser via QR)
+
+---
+
+## 🚀 Installation
+
+### Option 1 (Recommended)
 ```
-
-1. Run the app on your laptop
-2. Scan QR code using your phone
-3. Drop files
-4. Download instantly
-
----
-
-## 📸 Preview
-
-<img width="351" height="76" alt="image" src="https://github.com/user-attachments/assets/817ea891-f5d8-4ffa-83ee-1b3fff9a2c19" />
-<img width="1903" height="968" alt="image" src="https://github.com/user-attachments/assets/4d990f17-a559-47ec-9cfe-1730350f500a" />
-<img width="412" height="915" alt="image" src="https://github.com/user-attachments/assets/1eb7c241-e924-44da-b80b-5c40fdfc8e13" />
-
----
-
-## ⚙️ Installation
-
-```bash
-git clone https://github.com/YOUR-USERNAME/byte-drop.git
-cd byte-drop
-npm install
-node server.js
+npx byte-drop
 ```
-
 ---
 
-## 📱 Usage
-
-* Open in browser:
-
+### Option 2 (Global install)
 ```
-http://localhost:3000
+npm install -g byte-drop
+byte-drop
 ```
+---
 
-* Or scan the QR code
-* Drag & drop files anywhere
-* Tap to download on phone
+## ▶️ Usage
+
+1. Run the app:
+```
+byte-drop
+```
+2. You’ll see:
+```
+⚡ ByteDrop Started!
+
+💻 Laptop → http://192.168.x.x:3000
+📱 Scan QR → http://192.168.x.x:3000/receive
+
+🚀 Open on phone to download files
+```
+3. Open on phone:
+- Scan QR code
+- OR open the /receive link
+
+4. Done:
+- Upload files on laptop
+- Download on phone
 
 ---
 
-## 🔐 Privacy First
+## 📱 Mobile Experience
 
-* ❌ No internet required
-* ❌ No third-party servers
-* ✅ 100% local transfer
-
----
-
-## 🧩 Tech Stack
-
-* Node.js
-* Express
-* Multer
-* Vanilla JS
+- Clean UI
+- Auto updates
+- Shows:
+  - 📂 Available files
+  - 🔵 Download button
+  - ⏳ Waiting for files
 
 ---
 
-## 🚀 Roadmap
+## 🧠 Tech Stack
 
-* 📊 Upload progress bar
-* 📂 Multi-file support
-* 🔥 Hotspot mode
-* 📡 Auto device detection
-* 🎨 Better UI animations
+- Node.js
+- Express
+- Multer (file upload)
+- QRCode (device pairing)
 
 ---
 
-## 🤝 Contributing
+## ⚠️ Requirements
 
-Pull requests are welcome.
-If you’ve got ideas, open an issue!
+- Same WiFi network
+- Node.js installed
+
+---
+
+## 💡 Future Ideas
+
+- 📦 ZIP download (single click)
+- 📊 Upload progress bar
+- 📲 Installable PWA
+- 🔐 Optional secure mode
+
+---
+
+## 📜 License
+
+MIT License
 
 ---
 
 ## ⭐ Support
 
-If you like ByteDrop, give it a ⭐ — it helps a lot!
+If you like this project:
+
+- Star the repo
+- Share with friends
+- Build something even cooler
 
 ---
 
-## 👨‍💻 Author
+# ⚡ ByteDrop
 
-Built with 💻 by **Abhishek**
+"Because sending files shouldn’t feel like a task."
 
 ---
 
-## ⚡ ByteDrop
+## Screenshots
 
-> Fast. Local. Simple.
+<img width="479" height="300" alt="image" src="https://github.com/user-attachments/assets/c40acf11-b3b3-4e24-b721-a6f18cb6c85d" />
+
+<img width="1903" height="968" alt="image" src="https://github.com/user-attachments/assets/4d990f17-a559-47ec-9cfe-1730350f500a" />
+
+<img width="412" height="915" alt="image" src="https://github.com/user-attachments/assets/1eb7c241-e924-44da-b80b-5c40fdfc8e13" />
